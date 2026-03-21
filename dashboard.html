@@ -26,3 +26,18 @@
     <button onclick="showTips()">View Tips</button>
     <button onclick="window.location.href='index.html'">Logout</button>
 </section>
+<script>
+function showTips() {
+    var tips = [
+        "✅ Backup your data regularly",
+        "✅ Enable 2FA on all accounts",
+        "✅ Avoid public WiFi for sensitive tasks",
+        "✅ Use strong passwords with letters, numbers & symbols",
+        "✅ Keep your software up-to-date",
+        "✅ Learn ethical hacking safely",
+        "✅ Do not click unknown links or attachments"
+    ];
+
+    document.getElementById("tipsContainer").innerHTML = tips.join("<br>");
+}
+    </script>
