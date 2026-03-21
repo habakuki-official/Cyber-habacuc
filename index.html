@@ -118,3 +118,36 @@
     <p>> Intego yanje: kwigisha abantu uburyo bwo kwikingira kuri internet no ku mashini yabo.</p>
     <p>> Ubu ndi kwiga no gukora tutorials zigamije gufasha abandi kumenya iby’ibanga by’umutekano w’ikoranabuhanga.</p>
 </section>
+<section>
+    <h2>LOGIN</h2>
+    <form id="loginForm" onsubmit="return checkLogin()">
+        <p>
+            <label>Username:</label><br>
+            <input type="text" id="username" placeholder="Enter username" required>
+        </p>
+        <p>
+            <label>Password:</label><br>
+            <input type="password" id="password" placeholder="Enter password" required>
+        </p>
+        <button type="submit">Login</button>
+    </form>
+    <p id="loginMessage"></p>
+</section>
+
+<script>
+    function checkLogin() {
+        var user = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
+
+        // Example credentials
+        if(user === "habacuc" && pass === "cyber123") {
+            // Redirect to dashboard
+            window.location.href = "dashboard.html";
+        } else {
+            document.getElementById("loginMessage").innerHTML = "❌ Access Denied!";
+            document.getElementById("loginMessage").style.color = "red";
+        }
+
+        return false; // prevent page reload
+    }
+</script>
