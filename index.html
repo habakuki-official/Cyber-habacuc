@@ -119,51 +119,28 @@
     <p>> Ubu ndi kwiga no gukora tutorials zigamije gufasha abandi kumenya iby’ibanga by’umutekano w’ikoranabuhanga.</p>
 </section>
 <section>
+<section>
     <h2>LOGIN</h2>
-    <form id="loginForm" onsubmit="return checkLogin()">
-        <p>
-            <label>Username:</label><br>
-            <input type="text" id="username" placeholder="Enter username" required>
-        </p>
-        <p>
-            <label>Password:</label><br>
-            <input type="password" id="password" placeholder="Enter password" required>
-        </p>
+    <form onsubmit="return checkLogin()">
+        <input type="text" id="username" placeholder="Username" required><br><br>
+        <input type="password" id="password" placeholder="Password" required><br><br>
         <button type="submit">Login</button>
     </form>
-    <p id="loginMessage"></p>
+    <p id="msg"></p>
 </section>
 
 <script>
-    function checkLogin() {
-        var user = document.getElementById("username").value;
-        var pass = document.getElementById("password").value;
+function checkLogin() {
+    var user = document.getElementById("username").value.trim();
+    var pass = document.getElementById("password").value.trim();
 
-        // Example credentials
-        if(user === "habacuc" && pass === "cyber123") {
-            // Redirect to dashboard
-            window.location.href = "dashboard.html";
-        } else {
-            document.getElementById("loginMessage").innerHTML = "❌ Access Denied!";
-            document.getElementById("loginMessage").style.color = "red";
-        }
-
-        return false; // prevent page reload
+    if(user === "habacuc" && pass === "cyber123") {
+        window.location.href = "dashboard.html";
+    } else {
+        document.getElementById("msg").innerHTML = "❌ Wrong username or password";
+        document.getElementById("msg").style.color = "red";
     }
-</script>
-<script>
-function showTips() {
-    var tips = [
-        "✅ Backup your data regularly",
-        "✅ Enable 2FA on all accounts",
-        "✅ Avoid public WiFi for sensitive tasks",
-        "✅ Use strong passwords with letters, numbers & symbols",
-        "✅ Keep your software up-to-date",
-        "✅ Learn ethical hacking safely",
-        "✅ Do not click unknown links or attachments"
-    ];
 
-    // Uko ushaka kwerekana tips: Alert popup
-    alert("Cybersecurity Tips:\n\n" + tips.join("\n"));
+    return false;
 }
 </script>
