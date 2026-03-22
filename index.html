@@ -135,6 +135,29 @@ function checkLogin() {
 <a href="signup.html">👉 Create a new account</a>
 </p>
 <script>
+    <script>
+function createAccount() {
+    var user = document.getElementById("newUser").value;
+    var pass = document.getElementById("newPass").value;
+
+    localStorage.setItem("username", user);
+    localStorage.setItem("password", pass);
+
+    // Kwereka message yo kwishyura
+    document.getElementById("msg").innerHTML =
+        "✅ Account created! Please pay 100 Fbu via WhatsApp to +25765584191. Click the button to notify payment.";
+
+    // Add button to WhatsApp
+    var paymentButton = document.createElement("button");
+    paymentButton.innerText = "Notify Payment";
+    paymentButton.onclick = function() {
+        window.open("https://wa.me/25765584191?text=I%20have%20paid%20100Fbu%20for%20Cyber%20Habacuc%20account");
+    };
+    document.getElementById("msg").appendChild(paymentButton);
+
+    return false;
+}
+</script>
 function checkLogin() {
     var user = document.getElementById("username").value;
     var pass = document.getElementById("password").value;
