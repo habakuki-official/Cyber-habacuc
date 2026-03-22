@@ -147,3 +147,20 @@ function checkLogin() {
 <p>
 <a href="signup.html">👉 Create a new account</a>
 </p>
+<script>
+function checkLogin() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+    var savedUser = localStorage.getItem("username");
+    var savedPass = localStorage.getItem("password");
+
+    if(user === savedUser && pass === savedPass) {
+        window.location.href = "dashboard.html";
+    } else {
+        document.getElementById("msg").innerHTML = "❌ Wrong username or password";
+    }
+
+    return false;
+}
+            </script>
