@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <style>
+        body {
+            background: black;
+            color: #00ff00;
+            font-family: "Courier New", monospace;
+            text-align: center;
+        }
+
+        input {
+            background: black;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background: black;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00ff00;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Create Account</h2>
+
+<form onsubmit="return createAccount()">
+    <input type="text" id="newUser" placeholder="New Username" required><br>
+    <input type="password" id="newPass" placeholder="New Password" required><br>
+    <button type="submit">Create Account</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+function createAccount() {
+    var user = document.getElementById("newUser").value;
+    var pass = document.getElementById("newPass").value;
+
+    // Kubika muri browser (localStorage)
+    localStorage.setItem("username", user);
+    localStorage.setItem("password", pass);
+
+    document.getElementById("msg").innerHTML = "✅ Account created! Go login.";
+    
+    // Redirect to login page
+    setTimeout(function() {
+        window.location.href = "index.html";
+    }, 2000);
+
+    return false;
+}
+</script>
+
+</body>
+</html>
