@@ -15,6 +15,7 @@
     </style>
 </head>
 <body>
+    <canvas id="matrix"></canvas>
     <h1>💻 Dashboard</h1>
     <p>Welcome, Habacuc! This is your cyber dashboard.</p>
     <p>Here you can manage lessons, posts & tips.</p>
@@ -46,6 +47,43 @@ function showTips() {
     <div id="tipsContainer"></div>
 </section>
 <script>
+    <script>
+var canvas = document.getElementById("matrix");
+var ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+var letters = "01HABACUC";
+letters = letters.split("");
+
+var fontSize = 14;
+var columns = canvas.width / fontSize;
+
+var drops = [];
+for (var x = 0; x < columns; x++)
+    drops[x] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ff00";
+    ctx.font = fontSize + "px monospace";
+
+    for (var i = 0; i < drops.length; i++) {
+        var text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+        if (drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+</script>
 function showTips() {
     var tips = [
         "✅ Backup your data regularly",
@@ -80,3 +118,34 @@ function showTips() {
 </section>
 
 <button onclick="window.location.href='index.html'">Logout</button>
+
+function showLessons() {
+    var lessons = JSON.parse(localStorage.getItem("lessons")) || "";
+    var output = "";
+
+    for(var i = 0; i < lessons.length; i++) {
+        output += "<p>> " + lessons[i] + 
+        " <button onclick='deleteLesson("+i+")'>Delete</button></p>";
+    }
+
+    document.getElementById("lessonList").innerHTML = output;
+}
+        canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+section {
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    margin: 20px auto;
+    width: 80%;
+    padding: 20px;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+button {
+    margin-top: 5px;
+}
