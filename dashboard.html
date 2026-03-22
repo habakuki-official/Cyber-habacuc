@@ -61,3 +61,22 @@ function showTips() {
     alert("Cybersecurity Tips:\n\n" + tips.join("\n"));
 }
         </script>
+<section>
+    <h2>Add Lesson</h2>
+
+    <input type="text" id="lessonInput" placeholder="Write new lesson"><br><br>
+    <button onclick="addLesson()">Add Lesson</button>
+</section>
+
+<section>
+    <h2>Your Lessons</h2>
+    <div id="lessonList"></div>
+</section>
+
+<section>
+    <h2>Cyber Tips</h2>
+    <button onclick="showTips()">View Tips</button>
+    <div id="tipsBox"></div>
+</section>
+
+<button onclick="window.location.href='index.html'">Logout</button>
