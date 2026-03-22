@@ -17,6 +17,25 @@
 <body>
     <canvas id="matrix"></canvas>
     <h1>💻 Dashboard</h1>
+    <section>
+    <h2>Cyber Quiz</h2>
+
+    <p>Is it safe to share your password?</p>
+    <button onclick="quiz('no')">No</button>
+    <button onclick="quiz('yes')">Yes</button>
+
+    <p id="quizResult"></p>
+</section>
+
+<script>
+function quiz(answer) {
+    if(answer === "no") {
+        document.getElementById("quizResult").innerHTML = "✅ Correct!";
+    } else {
+        document.getElementById("quizResult").innerHTML = "❌ Wrong!";
+    }
+}
+</script>
     <p>Welcome, Habacuc! This is your cyber dashboard.</p>
     <p>Here you can manage lessons, posts & tips.</p>
 </body>
@@ -148,4 +167,36 @@ section {
 
 button {
     margin-top: 5px;
-}
+}<section>
+    <h2>Cybersecurity Courses</h2>
+
+    <p>> Introduction to Cybersecurity</p>
+    <p>> Password Security</p>
+    <p>> Social Media Protection</p>
+    <p>> Ethical Hacking Basics</p>
+    <p>> Phishing & Scam Detection</p>
+</section>
+    <section>
+    <h2>Cyber Lessons</h2>
+
+    <p>> Never share your password with anyone</p>
+    <p>> Use 2FA (Two Factor Authentication)</p>
+    <p>> Avoid clicking unknown links</p>
+    <p>> Always log out from public devices</p>
+    <p>> Do not install unknown apps</p>
+    </section>
+        <section>
+    <h2>Hacker Knowledge</h2>
+
+    <p>> Hackers use social engineering to trick users</p>
+    <p>> Weak passwords are the biggest risk</p>
+    <p>> Public WiFi can be dangerous</p>
+    <p>> Always verify links before clicking</p>
+        </section>
+        <section>
+    <h2>About This Website</h2>
+
+    <p>> This website teaches cybersecurity basics</p>
+    <p>> Learn how to protect your phone and accounts</p>
+    <p>> Stay safe online and avoid hackers</p>
+        </section>
